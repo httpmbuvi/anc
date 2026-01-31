@@ -1,0 +1,284 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>ANCO CREATIONS | Web Developer Portfolio</title>
+    <meta name="description" content="A modern and responsive portfolio website for Anco Creations, a skilled web developer specializing in React and Next.js.">
+    <meta name="keywords" content="web developer, frontend developer, react, next.js, portfolio, javascript">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/favicon.png" type="image/x-icon">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Cyber Security Theme & Fancy Chat Styles -->
+    <style>
+        :root {
+            --body-color: #172a45;
+            --text-color: #a8b2d1;
+            --title-color: #e6f1ff;
+            --first-color: #64ffda; /* Neon Green/Cyan */
+            --container-color: #2a3b55;
+        }
+        .section { background: transparent !important; }
+        .header { background-color: rgba(23, 42, 69, 0.85); backdrop-filter: blur(10px); }
+        .nav__logo, .nav__link, h1, h2, h3, h4 { color: var(--title-color) !important; }
+        .nav__link:hover, .active-link { color: var(--first-color) !important; }
+        
+        /* Cyber styling for cards */
+        .project__card, .skills__box, .testimonial__card, .about__container {
+            background-color: var(--container-color);
+            border: 1px solid #3a4b66;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            transition: transform 0.3s;
+        }
+        .project__card:hover, .skills__box:hover {
+            transform: translateY(-5px);
+            border-color: var(--first-color);
+        }
+
+        /* Fancy Chat Box (FAB) */
+        .fab-toggle {
+            background-color: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 15px var(--first-color), 0 0 30px var(--first-color);
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+        }
+        .fab-menu {
+            background: rgba(23, 42, 69, 0.95);
+            border: 1px solid var(--first-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        }
+        
+        /* Form Inputs */
+        .contact__form-input {
+            background-color: var(--container-color);
+            border: 1px solid #3a4b66;
+            color: var(--title-color);
+        }
+        .contact__form-input:focus {
+            border-color: var(--first-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+        .button--primary {
+            background: transparent;
+            border: 1px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
+        }
+        .button--primary:hover {
+            background: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            text-shadow: none;
+        }
+
+        /* Typewriter Effect */
+        .home__content h1 {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid var(--first-color);
+            white-space: nowrap;
+            margin: 0;
+            width: 15ch;
+            animation: typing 3s steps(15, end) infinite alternate, blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--first-color) }
+        }
+
+        /* Glitch Effect on Hover */
+        .home__content h1:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            border-right: none;
+            overflow: visible;
+        }
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+                text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9;
+            }
+            20% {
+                transform: translate(-2px, 2px);
+                text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9;
+            }
+            40% {
+                transform: translate(-2px, -2px);
+                text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9;
+            }
+            60% {
+                transform: translate(2px, 2px);
+                text-shadow: 2px -2px #ff00c1, -2px 2px #00fff9;
+            }
+            80% {
+                transform: translate(2px, -2px);
+                text-shadow: -2px 2px #ff00c1, 2px -2px #00fff9;
+            }
+            100% {
+                transform: translate(0);
+                text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9;
+            }
+        }
+
+        /* Attractive Logo Styles */
+        .nav__logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav__logo:hover {
+            color: var(--first-color) !important;
+            text-shadow: 0 0 10px var(--first-color), 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: scale(1.02);
+        }
+        .logo__initial {
+            background: transparent !important;
+            border: 2px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: logo-pulse 3s infinite ease-in-out;
+        }
+        @keyframes logo-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(100, 255, 218, 0.8), inset 0 0 10px rgba(100, 255, 218, 0.4); }
+        }
+        .nav__logo:hover .logo__initial {
+            background: var(--first-color) !important;
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: rotate(360deg);
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#home" class="nav__logo"><span class="logo__initial">A</span>NCO CREATIONS</a>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="services.html#rate-card" class="nav__link">Our Rate Card</a></li>
+                    <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="skills.html" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </div>
+            <i class="fas fa-moon theme-toggle"></i>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="home">
+            <!-- Animated Background Slider -->
+            <div class="home__slider">
+                <div class="home__slide" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="home__slide" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="home__slide" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="home__slide" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80');"></div>
+            </div>
+            <div class="home__container container grid">
+                <div class="home__content">
+                    <h1>Anco Creations</h1>
+                    <h3>Frontend Developer | React & Next.js Specialist</h3>
+                    <p>A passionate team creating seamless and powerful web experiences from scratch.</p>
+                    <div class="home__buttons">
+                        <a href="contact.html" class="button button--primary">Hire Us</a>
+                        <a href="projects.html" class="button button--secondary">View Projects</a>
+                    </div>
+                </div>
+                <div class="home__social">
+                    <a href="https://wa.me/254745282806?text=Hello%20Anco%20Creations!%20I'm%20interested%20in%20your%20services." target="_blank" class="home__social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <p>&copy; 2024 Anco Creations. All rights reserved.</p>
+            <ul class="footer__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <div class="fab-menu">
+            <a href="contact.html" class="fab-item fab-item--ai" aria-label="Need Help?">
+                <i class="fas fa-question"></i>
+                <span>Need help?</span>
+            </a>
+            <a href="https://wa.me/254745282806?text=Hello%20Anco%20Creations!%20I'm%20interested%20in%20your%20services." target="_blank" class="fab-item fab-item--whatsapp" aria-label="Chat with us">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+        <button class="fab-toggle" aria-label="Toggle chat menu">
+            <i class="fas fa-comment-dots"></i>
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Scroll Up Button -->
+    <a href="#" class="scrollup" id="scroll-up"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

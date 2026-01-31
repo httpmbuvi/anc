@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ANCO CREATIONS</title>
+    <link rel="icon" href="https://i.imgur.com/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --body-color: #172a45;
+            --text-color: #a8b2d1;
+            --title-color: #e6f1ff;
+            --first-color: #64ffda;
+            --container-color: #2a3b55;
+        }
+        .section { background: transparent !important; }
+        .header { background-color: rgba(23, 42, 69, 0.85); backdrop-filter: blur(10px); }
+        .nav__logo, .nav__link, h1, h2, h3, h4 { color: var(--title-color) !important; }
+        .nav__link:hover, .active-link { color: var(--first-color) !important; }
+        .project__card, .skills__box, .testimonial__card, .about__container {
+            background-color: var(--container-color);
+            border: 1px solid #3a4b66;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            transition: transform 0.3s;
+        }
+        .project__card:hover, .skills__box:hover { transform: translateY(-5px); border-color: var(--first-color); }
+        .fab-toggle {
+            background-color: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 15px var(--first-color), 0 0 30px var(--first-color);
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+        }
+        .fab-menu {
+            background: rgba(23, 42, 69, 0.95);
+            border: 1px solid var(--first-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        }
+        .button--primary {
+            background: transparent;
+            border: 1px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
+        }
+        .button--primary:hover {
+            background: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            text-shadow: none;
+        }
+        .nav__logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav__logo:hover {
+            color: var(--first-color) !important;
+            text-shadow: 0 0 10px var(--first-color), 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: scale(1.02);
+        }
+        .logo__initial {
+            background: transparent !important;
+            border: 2px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: logo-pulse 3s infinite ease-in-out;
+        }
+        @keyframes logo-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(100, 255, 218, 0.8), inset 0 0 10px rgba(100, 255, 218, 0.4); }
+        }
+        .nav__logo:hover .logo__initial {
+            background: var(--first-color) !important;
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: rotate(360deg);
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><span class="logo__initial">A</span>NCO CREATIONS</a>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link active-link">About</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="services.html#rate-card" class="nav__link">Our Rate Card</a></li>
+                    <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="skills.html" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle"><i class="fas fa-bars"></i><i class="fas fa-times"></i></div>
+            <i class="fas fa-moon theme-toggle"></i>
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="about section">
+            <h2 class="section__title">About Us</h2>
+            <div class="about__container container grid">
+                <div class="about__profile">
+                    <img src="https://image2url.com/r2/default/images/1768841076130-19ac60e3-e86e-41f5-9174-0b2ca22e91fa.png" alt="Anthony - CEO & Director" class="about__img" style="width: 100%; border-radius: 10px;">
+                    <div class="about__profile-data" style="text-align: center; margin-top: 1rem;">
+                        <h3 style="color: var(--first-color); font-size: 1.5rem; margin-bottom: 0.25rem;">Anthony</h3>
+                        <span style="color: var(--title-color); font-weight: 600; letter-spacing: 1px;">CEO & Director</span>
+                    </div>
+                </div>
+                <div class="about__data">
+                    <p class="about__description">Welcome to Anco Creations! We are a team with a knack for building beautiful, functional, and accessible digital experiences. With over 5 years in the field, we specialize in frontend development using modern technologies.</p>
+                    <div class="about__stack">
+                        <h4>Our Tech Stack</h4>
+                        <div class="about__stack-icons">
+                            <i class="devicon-html5-plain-wordmark colored"></i>
+                            <i class="devicon-css3-plain-wordmark colored"></i>
+                            <i class="devicon-javascript-plain colored"></i>
+                            <i class="devicon-react-original-wordmark colored"></i>
+                            <i class="devicon-nextjs-original-wordmark"></i>
+                            <i class="devicon-nodejs-plain-wordmark colored"></i>
+                            <i class="devicon-python-plain-wordmark colored"></i>
+                        </div>
+                    </div>
+                    <a href="services.html" class="button button--primary">Our Services</a>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="testimonials section">
+            <h2 class="section__title">What Our Clients Say</h2>
+            <div class="testimonials__container container grid">
+                <div class="testimonial__card">
+                    <p class="testimonial__quote">"Working with Anco Creations was a game-changer. Their attention to detail and commitment to quality is unparalleled. Highly recommended!"</p>
+                    <div class="testimonial__author"><h3 class="testimonial__name">Cosmas</h3><span class="testimonial__title">CEO, Tech Solutions</span></div>
+                </div>
+                <div class="testimonial__card">
+                    <p class="testimonial__quote">"The team at Anco Creations delivered a robust system that exceeded our expectations. Their professionalism and expertise are top-notch."</p>
+                    <div class="testimonial__author"><h3 class="testimonial__name">Frankline</h3><span class="testimonial__title">Project Manager, Innovate Co.</span></div>
+                </div>
+                <div class="testimonial__card">
+                    <p class="testimonial__quote">"From design to deployment, the process was seamless. Anco Creations truly understands client needs and delivers outstanding results."</p>
+                    <div class="testimonial__author"><h3 class="testimonial__name">George</h3><span class="testimonial__title">Founder, Creative Minds</span></div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="index.html" class="button button--secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container container">
+            <p>&copy; 2024 Anco Creations. All rights reserved.</p>
+            <ul class="footer__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div class="fab-container">
+        <div class="fab-menu">
+            <a href="contact.html" class="fab-item fab-item--ai" aria-label="Need Help?"><i class="fas fa-question"></i><span>Need help?</span></a>
+            <a href="https://wa.me/254745282806?text=Hello%20Anco%20Creations!%20I'm%20interested%20in%20your%20services." target="_blank" class="fab-item fab-item--whatsapp" aria-label="Chat with us"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+        </div>
+        <button class="fab-toggle" aria-label="Toggle chat menu"><i class="fas fa-comment-dots"></i><i class="fas fa-times"></i></button>
+    </div>
+    <a href="#" class="scrollup" id="scroll-up"><i class="fas fa-arrow-up"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>

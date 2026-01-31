@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Our Services | ANCO CREATIONS</title>
+    <meta name="description" content="Explore the services offered by Anco Creations, including web design, system development, network configuration, and more.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/favicon.png" type="image/x-icon">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Cyber Security Theme & Fancy Chat Styles -->
+    <style>
+        :root {
+            --body-color: #172a45;
+            --text-color: #a8b2d1;
+            --title-color: #e6f1ff;
+            --first-color: #64ffda; /* Neon Green/Cyan */
+            --container-color: #2a3b55;
+        }
+        .section { background: transparent !important; }
+        .header { background-color: rgba(23, 42, 69, 0.85); backdrop-filter: blur(10px); }
+        .nav__logo, .nav__link, h1, h2, h3, h4 { color: var(--title-color) !important; }
+        .nav__link:hover, .active-link { color: var(--first-color) !important; }
+        
+        /* Cyber styling for cards */
+        .service__card, .project__card, .skills__box, .testimonial__card, .about__container {
+            background-color: var(--container-color);
+            border: 1px solid #3a4b66;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            transition: transform 0.3s;
+        }
+        .service__card:hover, .project__card:hover, .skills__box:hover {
+            transform: translateY(-5px);
+            border-color: var(--first-color);
+        }
+
+        /* Fancy Chat Box (FAB) */
+        .fab-toggle {
+            background-color: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 15px var(--first-color), 0 0 30px var(--first-color);
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+        }
+        .fab-menu {
+            background: rgba(23, 42, 69, 0.95);
+            border: 1px solid var(--first-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        }
+
+        /* AI Assistant Button Glow */
+        .fab-item--ai {
+            animation: ai-glow 1.5s infinite alternate;
+            border-radius: 5px;
+        }
+        @keyframes ai-glow {
+            from { box-shadow: 0 0 2px var(--first-color); }
+            to { box-shadow: 0 0 15px var(--first-color); }
+        }
+
+        /* Chat Modal */
+        .chat-modal {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: var(--container-color);
+            border: 1px solid var(--first-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: rgba(23, 42, 69, 0.95);
+            padding: 10px;
+            border-bottom: 1px solid #3a4b66;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--first-color);
+            font-weight: bold;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message {
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+            font-size: 0.9rem;
+        }
+        .bot-message {
+            background-color: #3a4b66;
+            color: var(--title-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        .user-message {
+            background-color: var(--first-color);
+            color: var(--body-color);
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+        .chat-input-area {
+            padding: 10px;
+            border-top: 1px solid #3a4b66;
+            display: flex;
+            gap: 5px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #3a4b66;
+            background-color: var(--body-color);
+            color: var(--text-color);
+            outline: none;
+        }
+        .chat-send {
+            background: var(--first-color);
+            border: none;
+            color: var(--body-color);
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* Form Inputs */
+        .contact__form-input {
+            background-color: var(--container-color);
+            border: 1px solid #3a4b66;
+            color: var(--title-color);
+        }
+        .contact__form-input:focus {
+            border-color: var(--first-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+        .button--primary {
+            background: transparent;
+            border: 1px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.2);
+        }
+        .button--primary:hover {
+            background: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            text-shadow: none;
+        }
+
+        /* Attractive Logo Styles */
+        .nav__logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav__logo:hover {
+            color: var(--first-color) !important;
+            text-shadow: 0 0 10px var(--first-color), 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: scale(1.02);
+        }
+        .logo__initial {
+            background: transparent !important;
+            border: 2px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: logo-pulse 3s infinite ease-in-out;
+        }
+        @keyframes logo-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(100, 255, 218, 0.8), inset 0 0 10px rgba(100, 255, 218, 0.4); }
+        }
+        .nav__logo:hover .logo__initial {
+            background: var(--first-color) !important;
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: rotate(360deg);
+            animation: none;
+        }
+
+        /* Rate Card Modal */
+        .rate-card-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1001; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(23, 42, 69, 0.9); /* Black w/ opacity */
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .rate-card-modal__content {
+            position: relative;
+            background-color: var(--body-color);
+            margin: auto;
+            padding: 2rem;
+            border: 1px solid var(--first-color);
+            width: 95%;
+            max-width: 1100px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+            animation: modal-fade-in 0.5s;
+        }
+
+        @keyframes modal-fade-in {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .rate-card-modal__close {
+            color: #aaa;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .rate-card-modal__close:hover,
+        .rate-card-modal__close:focus {
+            color: var(--first-color);
+            text-decoration: none;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--first-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--first-color);
+            color: var(--body-color);
+        }
+        .tab-content {
+            display: none;
+            animation: fadeEffect 0.5s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><span class="logo__initial">A</span>NCO CREATIONS</a>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link active-link">Services</a></li>
+                    <li class="nav__item"><a href="services.html#rate-card" class="nav__link">Our Rate Card</a></li>
+                    <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="skills.html" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </div>
+            <i class="fas fa-moon theme-toggle"></i>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Services Section -->
+        <section id="services" class="services section">
+            <h2 class="section__title">Our Services</h2>
+            <p style="text-align: center; max-width: 800px; margin: -1.5rem auto 3rem; color: var(--text-color);">
+                Elevate your operations with our premium services. Our <strong>able and expert team</strong> is dedicated to delivering seamless integration and innovative tech solutions.
+            </p>
+            <div class="services__container container grid">
+                
+                <!-- Service 1: Web Development -->
+                <div class="service__card" id="web-development-service">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80" alt="Website Development" class="service__img">
+                    <div class="service__data">
+                        <h3 class="service__title">Web Development</h3>
+                        <p class="service__description">We build modern, responsive, and user-friendly websites. Check out our competitive packages.</p>
+                        <div class="service__price">Starting at Ksh 25,000</div>
+                        <button class="button button--primary open-rate-card-btn" data-tab="web-dev" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Packages</button>
+                    </div>
+                </div>
+
+                <!-- Service 2: School Profile -->
+                <div class="service__card">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="School Profile" class="service__img">
+                    <div class="service__data">
+                        <h3 class="service__title">School Profile</h3>
+                        <p class="service__description">Designing and developing comprehensive digital profiles and management systems for educational institutions.</p>
+                        <div class="service__price">Contact for Quote</div>
+                        <button class="button button--primary open-rate-card-btn" data-tab="profiles" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Packages</button>
+                    </div>
+                </div>
+
+                <!-- Service 3: Company Profile -->
+                <div class="service__card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Company Profile" class="service__img">
+                    <div class="service__data">
+                        <h3 class="service__title">Company Profile</h3>
+                        <p class="service__description">Creating professional and compelling digital profiles that showcase your company's strengths, mission, and services.</p>
+                        <div class="service__price">Starting at Ksh 80,000</div>
+                        <button class="button button--primary open-rate-card-btn" data-tab="profiles" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Packages</button>
+                    </div>
+                </div>
+
+                <!-- Service 4: Network Configuration -->
+                <div class="service__card">
+                    <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?auto=format&fit=crop&w=800&q=80" alt="Network Configuration" class="service__img">
+                    <div class="service__data">
+                        <h3 class="service__title">Network Configuration</h3>
+                        <p class="service__description">Designing and implementing secure and efficient network infrastructures to ensure seamless connectivity for your business.</p>
+                        <div class="service__price">Starting at Ksh 50,000</div>
+                        <button class="button button--primary open-rate-card-btn" data-tab="network" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Packages</button>
+                    </div>
+                </div>
+
+                <!-- Service 5: System Integration -->
+                <div class="service__card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="System Integration" class="service__img">
+                    <div class="service__data">
+                        <h3 class="service__title">System Integration</h3>
+                        <p class="service__description">Connect your digital ecosystem. We seamlessly integrate disparate systems to ensure your data flows smoothly and your team works efficiently.</p>
+                        <div class="service__price">Contact for Quote</div>
+                        <button class="button button--primary open-rate-card-btn" data-tab="network" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Packages</button>
+                    </div>
+                </div>
+
+                <!-- Service 6: Mobile App Development -->
+                <div class="service__card">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App Development" class="service__img">
+                    <div class="service__data">
+                        <h3 class="service__title">Mobile App Development</h3>
+                        <p class="service__description">Engage users on the go. Our team builds intuitive and high-performance mobile applications for both Android and iOS platforms.</p>
+                        <div class="service__price">Starting at Ksh 90,000</div>
+                        <button class="button button--primary open-rate-card-btn" data-tab="mobile-app" style="margin-top: 1rem; padding: 0.5rem 1rem;">View Packages</button>
+                    </div>
+                </div>
+
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="index.html" class="button button--secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <p>&copy; 2024 Anco Creations. All rights reserved.</p>
+            <ul class="footer__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <div class="fab-menu">
+            <a href="#" class="fab-item fab-item--ai" aria-label="ANCO creations" onclick="toggleChatModal(event)">
+                <i class="fas fa-robot"></i>
+                <span>ANCO creations</span>
+            </a>
+            <a href="https://wa.me/254745282806?text=Hello%20Anco%20Creations!%20I'm%20interested%20in%20your%20services." target="_blank" class="fab-item fab-item--whatsapp" aria-label="Chat with us">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+        <button class="fab-toggle" aria-label="Toggle chat menu">
+            <i class="fas fa-comment-dots"></i>
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Rate Card Modal -->
+    <div id="rate-card-modal" class="rate-card-modal">
+        <div class="rate-card-modal__content">
+            <span class="rate-card-modal__close">&times;</span>
+            <h2 class="section__title">Service Packages</h2>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'web-dev')">Web Development</button>
+                <button class="tab-btn" onclick="openTab(event, 'mobile-app')">Mobile App</button>
+                <button class="tab-btn" onclick="openTab(event, 'profiles')">Profiles</button>
+                <button class="tab-btn" onclick="openTab(event, 'network')">Network & Systems</button>
+            </div>
+
+            <div id="web-dev" class="tab-content active">
+                <div class="skills__container container grid">
+                    <!-- Bronze Package -->
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Bronze Package</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 25,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>5 Pages</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>1 Week Development</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>SEO Tag Integration</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Social Media Feed</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Domain name Registration</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Web Hosting</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>2 Months Maintenance</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+
+                    <!-- Silver Package -->
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Silver Package</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 38,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>8 Pages</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>2 Weeks Development</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>TLS & SSL Certificate Purchase</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Secured Https redirection</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Google Analytics</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Unlimited email accounts</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Unmetered disk space</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>3 Months Maintenance</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+
+                    <!-- Gold Package -->
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Gold Package</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 45,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>10 Pages Website</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>3 Weeks Development</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Unlimited domain names</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Unmetered disk space</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Unlimited email accounts</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Free SSL Certificates</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Free two sub-domains</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Secure and fast</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>6 months Maintenance</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>SEO Integration</li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem; margin-top: 4px;"></i>Unlimited databases</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-app" class="tab-content">
+                <div class="skills__container container grid">
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Startup Package</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 90,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Android App</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Basic UI/UX Design</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Up to 5 Screens</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Play Store Submission</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>1 Month Support</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Business Package</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 150,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Android & iOS (Hybrid)</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Custom UI/UX</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Up to 10 Screens</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>API Integration</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>2 Months Support</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="profiles" class="tab-content">
+                <div class="skills__container container grid">
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Company Profile</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 80,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Professional Design</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>CMS Integration</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>10 Pages</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>SEO Optimization</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">School Profile</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Custom Quote</div>
+                        <p style="text-align: center; color: var(--text-color); margin-bottom: 1rem;">Comprehensive management systems tailored for educational institutions.</p>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="network" class="tab-content">
+                <div class="skills__container container grid">
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">Network Configuration</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Ksh 50,000</div>
+                        <ul style="list-style: none; padding: 0; text-align: left; color: var(--text-color); font-size: 0.9rem; flex-grow: 1;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>LAN Setup</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Router Configuration</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Up to 20 Nodes</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--first-color); margin-right: 0.5rem;"></i>Basic Security Audit</li>
+                        </ul>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Get Started</a>
+                    </div>
+                    <div class="skills__box" style="display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem;">
+                        <h3 class="skills__subtitle">System Integration</h3>
+                        <div style="font-size: 1.75rem; color: var(--first-color); font-weight: 600; margin: 1rem 0;">Custom Quote</div>
+                        <p style="text-align: center; color: var(--text-color); margin-bottom: 1rem;">Seamless integration of disparate systems to ensure smooth data flow.</p>
+                        <a href="contact.html" class="button button--primary" style="margin-top: 1.5rem;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="assets/anco-creations-rate-card.pdf" download class="button button--primary"><i class="fas fa-download"></i> Download Rate Card (PDF)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div id="chat-modal" class="chat-modal">
+        <div class="chat-header">
+            <span>ANCO Assistant</span>
+            <i class="fas fa-times" style="cursor:pointer;" onclick="toggleChatModal(event)"></i>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">Hello! I'm ANCO's AI assistant. How can I help you today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Type a message..." onkeypress="handleChatKey(event)">
+            <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Scroll Up Button -->
+    <a href="#" class="scrollup" id="scroll-up"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Tab Logic
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            if(evt) evt.currentTarget.className += " active";
+        }
+
+        // Rate Card Modal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('rate-card-modal');
+            const openBtns = document.querySelectorAll('.open-rate-card-btn');
+            const navLinks = document.querySelectorAll('a[href="services.html#rate-card"]');
+            const closeBtn = document.querySelector('.rate-card-modal__close');
+
+            function openModal(e) {
+                if(e) e.preventDefault();
+                if(modal) modal.style.display = 'flex';
+                
+                // Handle tab opening if triggered by button with data-tab
+                const tabName = e.currentTarget.getAttribute('data-tab');
+                if(tabName) {
+                    const tabBtn = document.querySelector(`.tab-btn[onclick*="${tabName}"]`);
+                    if(tabBtn) tabBtn.click();
+                }
+            }
+
+            function closeModal() {
+                if(modal) modal.style.display = 'none';
+            }
+
+            openBtns.forEach(btn => btn.addEventListener('click', openModal));
+            if(closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', openModal);
+            });
+
+            // Close if user clicks outside of the modal content
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            });
+
+            // Open modal if URL has #rate-card hash
+            if (window.location.hash === '#rate-card') {
+                openModal();
+            }
+        });
+
+        // Chat Modal Logic
+        function toggleChatModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.getElementById('chat-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+                document.getElementById('chat-input').focus();
+            }
+        }
+
+        function handleChatKey(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user-message');
+            input.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                const response = getBotResponse(message);
+                addMessage(response, 'bot-message');
+            }, 500);
+        }
+
+        function addMessage(text, className) {
+            const messagesDiv = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${className}`;
+            msgDiv.textContent = text;
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+            if (input.includes('hello') || input.includes('hi')) return "Hello there! Welcome to Anco Creations.";
+            if (input.includes('price') || input.includes('cost')) return "Our websites start from Ksh 50,000. For a detailed quote, please contact us.";
+            if (input.includes('service')) return "We offer Web Development, App Development, and Network Configuration.";
+            if (input.includes('contact') || input.includes('email') || input.includes('phone')) return "You can reach us at anco.creations@outlook.com or 0745 282 806.";
+            if (input.includes('location') || input.includes('where')) return "We are based in Kenya but serve clients globally.";
+            return "I'm not sure about that. Please use the contact form or WhatsApp for specific queries.";
+        }
+    </script>
+</body>
+</html>

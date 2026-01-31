@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | ANCO CREATIONS</title>
+    <link rel="icon" href="https://i.imgur.com/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --body-color: #172a45;
+            --text-color: #a8b2d1;
+            --title-color: #e6f1ff;
+            --first-color: #64ffda;
+            --container-color: #2a3b55;
+        }
+        .section { background: transparent !important; }
+        .header { background-color: rgba(23, 42, 69, 0.85); backdrop-filter: blur(10px); }
+        .nav__logo, .nav__link, h1, h2, h3, h4 { color: var(--title-color) !important; }
+        .nav__link:hover, .active-link { color: var(--first-color) !important; }
+        .project__card, .skills__box, .testimonial__card, .about__container {
+            background-color: var(--container-color);
+            border: 1px solid #3a4b66;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            transition: transform 0.3s;
+        }
+        .project__card:hover, .skills__box:hover { transform: translateY(-5px); border-color: var(--first-color); }
+        .fab-toggle {
+            background-color: var(--first-color);
+            color: var(--body-color);
+            box-shadow: 0 0 15px var(--first-color), 0 0 30px var(--first-color);
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+        }
+        .fab-menu {
+            background: rgba(23, 42, 69, 0.95);
+            border: 1px solid var(--first-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        }
+        .nav__logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav__logo:hover {
+            color: var(--first-color) !important;
+            text-shadow: 0 0 10px var(--first-color), 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: scale(1.02);
+        }
+        .logo__initial {
+            background: transparent !important;
+            border: 2px solid var(--first-color);
+            color: var(--first-color);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: logo-pulse 3s infinite ease-in-out;
+        }
+        @keyframes logo-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(100, 255, 218, 0.5), inset 0 0 5px rgba(100, 255, 218, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(100, 255, 218, 0.8), inset 0 0 10px rgba(100, 255, 218, 0.4); }
+        }
+        .nav__logo:hover .logo__initial {
+            background: var(--first-color) !important;
+            color: var(--body-color);
+            box-shadow: 0 0 20px var(--first-color), 0 0 40px var(--first-color);
+            transform: rotate(360deg);
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo"><span class="logo__initial">A</span>NCO CREATIONS</a>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="services.html#rate-card" class="nav__link">Our Rate Card</a></li>
+                    <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="skills.html" class="nav__link active-link">Skills</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle"><i class="fas fa-bars"></i><i class="fas fa-times"></i></div>
+            <i class="fas fa-moon theme-toggle"></i>
+        </nav>
+    </header>
+    <main>
+        <section id="skills" class="skills section">
+            <h2 class="section__title">Our Skills</h2>
+            <div class="skills__container container grid">
+                <div class="skills__box">
+                    <h3 class="skills__subtitle">Frontend</h3>
+                    <div class="skills__data">
+                        <div class="skills__name"><i class="devicon-react-original colored"></i> React</div>
+                        <div class="skills__name"><i class="devicon-vuejs-plain colored"></i> Vue.js</div>
+                        <div class="skills__name"><i class="devicon-angularjs-plain colored"></i> Angular</div>
+                        <div class="skills__name"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
+                    </div>
+                </div>
+                <div class="skills__box">
+                    <h3 class="skills__subtitle">Backend</h3>
+                    <div class="skills__data">
+                        <div class="skills__name"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                        <div class="skills__name"><i class="devicon-express-original colored"></i> Express</div>
+                        <div class="skills__name"><i class="devicon-python-plain colored"></i> Python</div>
+                        <div class="skills__name"><i class="devicon-django-plain colored"></i> Django</div>
+                    </div>
+                </div>
+                <div class="skills__box">
+                    <h3 class="skills__subtitle">Tools & Platforms</h3>
+                    <div class="skills__data">
+                        <div class="skills__name"><i class="devicon-git-plain colored"></i> Git</div>
+                        <div class="skills__name"><i class="devicon-docker-plain colored"></i> Docker</div>
+                        <div class="skills__name"><i class="devicon-figma-plain colored"></i> Figma</div>
+                        <div class="skills__name"><i class="devicon-amazonwebservices-original colored"></i> AWS</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="index.html" class="button button--secondary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
